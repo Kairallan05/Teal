@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b2b63svucmv1d"]
+
+[ext_resource type="Texture2D" uid="uid://bd732lq0r3588" path="res://Materials/2145.jpg" id="1_s37ah"]
+[ext_resource type="PackedScene" uid="uid://bs38ehcoaymgr" path="res://Scenes/freeroam_player.tscn" id="2_hnokw"]
+[ext_resource type="PackedScene" uid="uid://byx50m1eyuets" path="res://Scenes/freeroam_tump.tscn" id="3_btrko"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hnokw"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_btrko"]
+sky_material = SubResource("ProceduralSkyMaterial_hnokw")
+
+[sub_resource type="Environment" id="Environment_874vt"]
+background_mode = 2
+sky = SubResource("Sky_btrko")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_s37ah"]
+vertices = PackedVector3Array(5, 0.625, 28, 6, 0.625, 32, 9, 0.625, 32, 9, 0.625, -49, -9, 0.625, 32, -2, 0.625, 32, -1, 0.625, 28, -9, 0.625, -49, 0, 1.375, 30, 0, 1.375, 35, 4, 1.375, 35, 4, 1.375, 30, 5, 0.625, 37, 9, 0.625, 49, -1, 0.625, 37, -9, 0.625, 49)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(0, 6, 3), PackedInt32Array(3, 6, 7), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(1, 2, 12), PackedInt32Array(12, 2, 13), PackedInt32Array(5, 14, 4), PackedInt32Array(4, 14, 15), PackedInt32Array(12, 13, 14), PackedInt32Array(14, 13, 15)]
+cell_size = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnokw"]
+albedo_color = Color(0.51718444, 0.5171845, 0.51718444, 1)
+albedo_texture = ExtResource("1_s37ah")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btrko"]
+albedo_texture = ExtResource("1_s37ah")
+uv1_triplanar = true
+
+[node name="Demo_World" type="Node3D" unique_id=414406650]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1443773683]
+environment = SubResource("Environment_874vt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1600947861]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Terrain" type="NavigationRegion3D" parent="." unique_id=265971104]
+navigation_mesh = SubResource("NavigationMesh_s37ah")
+
+[node name="Floor" type="CSGBox3D" parent="Terrain" unique_id=1469399138]
+use_collision = true
+size = Vector3(20, 0.25, 100)
+material = SubResource("StandardMaterial3D_hnokw")
+
+[node name="Obstacle" type="CSGBox3D" parent="Terrain" unique_id=1696965790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1859741, 0.5657525, 32.465576)
+use_collision = true
+size = Vector3(5.3719482, 1, 6.0688477)
+material = SubResource("StandardMaterial3D_btrko")
+
+[node name="Freeroam_Player" parent="." unique_id=667445938 instance=ExtResource("2_hnokw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5494633, 1.1249995, 42.524254)
+
+[node name="Enemies" type="Node" parent="." unique_id=335328448]
+
+[node name="freeroam_tump" parent="Enemies" unique_id=1983532164 instance=ExtResource("3_btrko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7922554, 0.6250005, 18.303745)
+
+[node name="freeroam_tump2" parent="Enemies" unique_id=223828075 instance=ExtResource("3_btrko")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35266113, 0.6249981, -23.474724)

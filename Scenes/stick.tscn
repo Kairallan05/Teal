@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cbxw0xq2pvbcl"]
+
+[ext_resource type="Script" uid="uid://bv12iaxjqosyj" path="res://Scripts/stick.gd" id="1_r78um"]
+
+[node name="Stick" type="Node3D" unique_id=427606020]
+script = ExtResource("1_r78um")

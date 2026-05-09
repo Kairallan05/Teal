@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://c26u00tau1tqb"]
+
+[ext_resource type="PackedScene" uid="uid://hglb6ax5ppl7" path="res://Scenes/battle_player.tscn" id="1_lq7nq"]
+[ext_resource type="Script" uid="uid://b681pn7ga6nml" path="res://Scripts/Arena.gd" id="1_ra5jo"]
+[ext_resource type="Texture2D" uid="uid://djnjmmg83av80" path="res://Assets/Health back.png" id="3_kcpg1"]
+[ext_resource type="Texture2D" uid="uid://dmkvf7okew5ot" path="res://Assets/Health front.png" id="4_csrox"]
+[ext_resource type="Texture2D" uid="uid://c5tx3rj4x0d26" path="res://Assets/Health bar.png" id="5_g2joa"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ra5jo"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_nnts3"]
+sky_material = SubResource("ProceduralSkyMaterial_ra5jo")
+
+[sub_resource type="Environment" id="Environment_1v1nj"]
+background_mode = 2
+sky = SubResource("Sky_nnts3")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jdqfs"]
+albedo_color = Color(0.3629046, 0.26643074, 0.09441831, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lq7nq"]
+albedo_color = Color(0.080783345, 0.080783345, 0.080783345, 1)
+
+[node name="Arena" type="Node3D" unique_id=260379580]
+script = ExtResource("1_ra5jo")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1098901699]
+environment = SubResource("Environment_1v1nj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=219437802]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="CSGCylinder3D" parent="." unique_id=934292068 groups=["floor"]]
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+radius = 15.0
+height = 1.0
+sides = 10
+smooth_faces = false
+material = SubResource("StandardMaterial3D_jdqfs")
+
+[node name="Wall" type="CSGTorus3D" parent="." unique_id=1535739677 groups=["Wall"]]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+inner_radius = 14.641937
+outer_radius = 18.758804
+sides = 10
+smooth_faces = false
+material = SubResource("StandardMaterial3D_lq7nq")
+
+[node name="Wall_Overhang" type="CSGCylinder3D" parent="." unique_id=1499150019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -14)
+use_collision = true
+collision_layer = 3
+collision_mask = 3
+radius = 1.5
+height = 0.5
+sides = 10
+material = SubResource("StandardMaterial3D_lq7nq")
+
+[node name="Player_Spot" type="Marker3D" parent="." unique_id=1486386842]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4784932, 5)
+
+[node name="Battle_Player" parent="Player_Spot" unique_id=667445938 instance=ExtResource("1_lq7nq")]
+
+[node name="Enemy_Spot" type="Marker3D" parent="." unique_id=1216601782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5)
+
+[node name="Battle_Camera" type="Camera3D" parent="." unique_id=92037970]
+transform = Transform3D(0.9659259, 0, 0.25881916, 0, 1, 0, -0.25881916, 0, 0.9659259, 2.8501184, 2.450846, 8)
+fov = 80.0
+
+[node name="Battle_UI" type="CanvasLayer" parent="." unique_id=2094624035]
+
+[node name="Enemy_health" type="TextureProgressBar" parent="Battle_UI" unique_id=266847573]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -312.0
+offset_top = -21.000002
+offset_right = 1288.0
+offset_bottom = 1579.0032
+grow_horizontal = 2
+scale = Vector2(0.4, 0.4)
+value = 5.0
+radial_fill_degrees = 270.0
+texture_under = ExtResource("3_kcpg1")
+texture_over = ExtResource("4_csrox")
+texture_progress = ExtResource("5_g2joa")
+
+[connection signal="enemyturn" from="." to="Player_Spot/Battle_Player" method="enemyturn"]
+[connection signal="playerturn" from="." to="Player_Spot/Battle_Player" method="playerturn"]

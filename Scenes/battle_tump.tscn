@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cajv4afrhgx57"]
+
+[ext_resource type="Script" uid="uid://602m1jrjr8nl" path="res://Scripts/battle_tump.gd" id="1_wl3y2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4cad"]
+albedo_color = Color(0.6274321, 0.0712168, 0.13106471, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lxk0e"]
+material = SubResource("StandardMaterial3D_p4cad")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rpwcb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wl3y2"]
+size = Vector3(1, 0.2644043, 1)
+
+[node name="battle_tump" type="CharacterBody3D" unique_id=1983532164]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_wl3y2")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=95120586]
+mesh = SubResource("SphereMesh_lxk0e")
+
+[node name="Body" type="CollisionShape3D" parent="." unique_id=1617303292]
+shape = SubResource("SphereShape3D_rpwcb")
+
+[node name="Turn_Timer" type="Timer" parent="." unique_id=555710707]
+wait_time = 16.0
+one_shot = true
+
+[node name="Raycast" type="RayCast3D" parent="." unique_id=500256979]
+transform = Transform3D(-5.7320566e-15, -1.3113416e-07, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, 1.3113416e-07, 0, 0, 0)
+
+[node name="Bottom_box" type="Area3D" parent="." unique_id=236826834]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bottom_box" unique_id=553985854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39245605, 0)
+shape = SubResource("BoxShape3D_wl3y2")
+
+[connection signal="timeout" from="Turn_Timer" to="." method="_on_turn_timer_timeout"]
+[connection signal="body_entered" from="Bottom_box" to="." method="_on_bottom_box_body_entered"]

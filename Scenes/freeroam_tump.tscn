@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://byx50m1eyuets"]
+
+[ext_resource type="Script" uid="uid://bbhlmue0mprta" path="res://Scripts/freeroam_tump.gd" id="1_lxk0e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4cad"]
+albedo_color = Color(0.6274321, 0.0712168, 0.13106471, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lxk0e"]
+material = SubResource("StandardMaterial3D_p4cad")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rpwcb"]
+
+[node name="freeroam_tump" type="CharacterBody3D" unique_id=1983532164]
+script = ExtResource("1_lxk0e")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=95120586]
+mesh = SubResource("SphereMesh_lxk0e")
+
+[node name="Body" type="CollisionShape3D" parent="." unique_id=1617303292]
+shape = SubResource("SphereShape3D_rpwcb")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=690454615]

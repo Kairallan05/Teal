@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cbxw0xq2pvbcl"]
+
+[sub_resource type="GDScript" id="GDScript_hf68r"]
+script/source = "
+"
+
+[node name="Stick" type="Node3D" unique_id=427606020]
+script = SubResource("GDScript_hf68r")

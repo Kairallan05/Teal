@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://hglb6ax5ppl7"]
+
+[ext_resource type="Script" uid="uid://b6mwarvuo0qcn" path="res://Scripts/battle_player.gd" id="1_sd2tt"]
+[ext_resource type="Texture2D" uid="uid://djnjmmg83av80" path="res://Assets/Health back.png" id="2_xhviq"]
+[ext_resource type="Texture2D" uid="uid://dmkvf7okew5ot" path="res://Assets/Health front.png" id="3_aacdg"]
+[ext_resource type="Texture2D" uid="uid://c5tx3rj4x0d26" path="res://Assets/Health bar.png" id="4_nlypp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_whp1n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4rty"]
+
+[node name="Battle_Player" type="CharacterBody3D" unique_id=667445938]
+script = ExtResource("1_sd2tt")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1874676428]
+mesh = SubResource("CapsuleMesh_whp1n")
+
+[node name="Body" type="CollisionShape3D" parent="." unique_id=1799229143]
+shape = SubResource("CapsuleShape3D_d4rty")
+
+[node name="Head" type="Node3D" parent="." unique_id=1338352389]
+
+[node name="Camera" type="Camera3D" parent="Head" unique_id=1014991719]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 2, 8)
+fov = 80.0
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1490638153]
+
+[node name="PlayerHealth" type="TextureProgressBar" parent="UI" unique_id=1607140390]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -134.0
+offset_right = 1626.0
+offset_bottom = 1466.0032
+grow_vertical = 0
+scale = Vector2(0.25, 0.25)
+value = 100.0
+radial_fill_degrees = 270.0
+texture_under = ExtResource("2_xhviq")
+texture_over = ExtResource("3_aacdg")
+texture_progress = ExtResource("4_nlypp")
