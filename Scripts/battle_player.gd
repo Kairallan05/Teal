@@ -4,9 +4,10 @@ extends Player
 var my_turn = false
 @onready var arena: Arena = $"../.."
 @onready var camera: Camera3D = $Head/SpringArm3D/Camera
-@onready var attacks: AnimatedSprite2D = $UI/Control/Attacks
-@onready var ui_back: Sprite2D = $UI/Control/UiBack
-@onready var attack_button: TextureButton = $UI/Control/Attack_button
+@onready var attacks: AnimatedSprite2D = $UI/Control/Spriteholder/Attacks
+@onready var ui_back: TextureRect = $UI/Control/UiBack
+@onready var attack_button: TextureButton = $UI/Control/UiBack/Attack_button
+@onready var player_health: TextureProgressBar = $UI/Control/UiBack/PlayerHealth
 var opponent : Combatant
 
 func onload():
@@ -21,6 +22,9 @@ func _unhandled_input(event):
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		arena.Next_Turn()
+	
+	player_health.max_value = Player_Statistics.maxhealth
+	player_health.value = Player_Statistics.health
 	
 	if Player_Statistics.health <= 0:
 		Player_Statistics.health = Player_Statistics.maxhealth

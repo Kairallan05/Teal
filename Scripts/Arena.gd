@@ -4,7 +4,7 @@ class_name Arena
 @onready var battle_camera: Camera3D = $Battle_Camera
 @onready var battle_player: CharacterBody3D = $Player_Spot/Battle_Player
 @onready var enemy_spot: Marker3D = $Enemy_Spot
-@onready var enemy_health: TextureProgressBar = $Battle_UI/Enemy_health
+@onready var enemy_health: TextureProgressBar = $Battle_UI/Control/Enemy_health
 var Enemy : Combatant
 
 enum Turn{player,enemy}

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://r3vjtmajc7sk" path="res://Assets/Attack_sprites/Sword_Slice-Sheet.png" id="5_aacdg"]
 [ext_resource type="Texture2D" uid="uid://b82gkvbnok3oa" path="res://Assets/Attack_button_pressed.png" id="6_gvswm"]
 [ext_resource type="Texture2D" uid="uid://c8d8jbr6bk138" path="res://Assets/Attack_button_Hover.png" id="7_hlyhm"]
+[ext_resource type="Script" uid="uid://dsqcpo22miqut" path="res://Scripts/attackssprite.gd" id="10_gvswm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_whp1n"]
 
@@ -186,43 +187,75 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="UiBack" type="Sprite2D" parent="UI/Control" unique_id=1043072464]
-position = Vector2(961.00006, 546)
-scale = Vector2(6, 6)
+[node name="UiBack" type="TextureRect" parent="UI/Control" unique_id=607138350]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.049000002
+anchor_top = 0.62
+anchor_right = 0.95100003
+anchor_bottom = 0.97700006
+offset_left = -94.08
+offset_top = -669.6
+offset_right = 94.079956
+offset_bottom = 24.839966
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_k56wd")
 
-[node name="Attacks" type="AnimatedSprite2D" parent="UI/Control" unique_id=1024301534]
-position = Vector2(958.24994, 540.75)
-scale = Vector2(5.9921875, 6.0416665)
-sprite_frames = SubResource("SpriteFrames_nlypp")
-animation = &"Default"
+[node name="PlayerHealth" type="TextureProgressBar" parent="UI/Control/UiBack" unique_id=1607140390]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08400001
+anchor_top = 0.89800006
+anchor_right = 0.259
+anchor_bottom = 0.94100004
+offset_left = -0.28001404
+offset_top = 0.15991211
+offset_right = -0.27999878
+offset_bottom = -0.2800293
+grow_vertical = 0
+value = 90.0
+radial_fill_degrees = 270.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_xhviq")
+texture_over = ExtResource("3_aacdg")
+texture_progress = ExtResource("4_nlypp")
 
-[node name="Attack_button" type="TextureButton" parent="UI/Control" unique_id=1941591330]
-layout_mode = 0
-offset_left = 1596.0
-offset_top = 714.0
-offset_right = 1788.0
-offset_bottom = 810.0
+[node name="Attack_button" type="TextureButton" parent="UI/Control/UiBack" unique_id=1941591330]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.83900005
+anchor_top = 0.64500004
+anchor_right = 0.92800003
+anchor_bottom = 0.726
+offset_left = 0.11987305
+offset_top = 0.39996338
+offset_right = -0.76000977
+offset_bottom = -0.08001709
+grow_horizontal = 0
+grow_vertical = 0
 texture_normal = ExtResource("5_1beb5")
 texture_pressed = ExtResource("6_gvswm")
 texture_hover = ExtResource("7_hlyhm")
 stretch_mode = 0
 
-[node name="PlayerHealth" type="TextureProgressBar" parent="UI" unique_id=1607140390]
-anchors_preset = 2
-anchor_top = 1.0
+[node name="Spriteholder" type="TextureRect" parent="UI/Control" unique_id=1766546840]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 146.0
-offset_top = -113.0
-offset_right = 1746.0
-offset_bottom = 1487.0032
-grow_vertical = 0
-scale = Vector2(6, 6)
-value = 90.0
-radial_fill_degrees = 270.0
-texture_under = ExtResource("2_xhviq")
-texture_over = ExtResource("3_aacdg")
-texture_progress = ExtResource("4_nlypp")
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[connection signal="animation_finished" from="UI/Control/Attacks" to="." method="_on_attacks_animation_finished"]
-[connection signal="pressed" from="UI/Control/Attack_button" to="." method="_on_attack_button_pressed"]
+[node name="Attacks" type="AnimatedSprite2D" parent="UI/Control/Spriteholder" unique_id=1024301534]
+sprite_frames = SubResource("SpriteFrames_nlypp")
+animation = &"Sword_Slice"
+frame = 17
+frame_progress = 1.0
+centered = false
+script = ExtResource("10_gvswm")
+
+[connection signal="pressed" from="UI/Control/UiBack/Attack_button" to="." method="_on_attack_button_pressed"]
+[connection signal="animation_finished" from="UI/Control/Spriteholder/Attacks" to="." method="_on_attacks_animation_finished"]

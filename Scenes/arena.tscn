@@ -80,19 +80,32 @@ fov = 80.0
 
 [node name="Battle_UI" type="CanvasLayer" parent="." unique_id=2094624035]
 
-[node name="Enemy_health" type="TextureProgressBar" parent="Battle_UI" unique_id=1307535882]
-anchors_preset = 2
-anchor_top = 1.0
+[node name="Control" type="Control" parent="Battle_UI" unique_id=1806143683]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 657.0
-offset_top = -1040.0
-offset_right = 2257.0
-offset_bottom = 560.0032
-grow_vertical = 0
-scale = Vector2(10, 8)
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Enemy_health" type="TextureProgressBar" parent="Battle_UI/Control" unique_id=1307535882]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.326
+anchor_top = 0.052
+anchor_right = 0.671
+anchor_bottom = 0.11800001
+offset_left = -5.5599976
+offset_top = 0.11999512
+offset_right = 0.23999023
+offset_bottom = 0.07998657
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 value = 90.0
 radial_fill_degrees = 270.0
+nine_patch_stretch = true
 texture_under = ExtResource("3_kcpg1")
 texture_over = ExtResource("4_csrox")
 texture_progress = ExtResource("5_g2joa")

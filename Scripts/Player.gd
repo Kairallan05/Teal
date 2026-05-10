@@ -7,15 +7,10 @@ const JUMP_VELOCITY = 9
 const SENSITIVITY = 0.1
 const ACCELERATION = 60.0
 @onready var head: Node3D = $Head
-@onready var player_health: TextureProgressBar = $UI/PlayerHealth
 
 
 func _ready() -> void:
 	Assign_Weapon()
-
-func _process(delta: float) -> void:
-	player_health.max_value = Player_Statistics.maxhealth
-	player_health.value = Player_Statistics.health
 
 func Normal_Camera(event):
 	if event is InputEventMouseMotion:
