@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by2wl410jxcyk"
-path="res://.godot/imported/Health back.png-4785abe5959c2c135faafdc3d0b5bd25.ctex"
+uid="uid://c8d8jbr6bk138"
+path="res://.godot/imported/Attack_button_Hover.png-1a68894310396bf9123776d8c746542e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Health back.png"
-dest_files=["res://.godot/imported/Health back.png-4785abe5959c2c135faafdc3d0b5bd25.ctex"]
+source_file="res://Assets/Attack_button_Hover.png"
+dest_files=["res://.godot/imported/Attack_button_Hover.png-1a68894310396bf9123776d8c746542e.ctex"]
 
 [params]
 

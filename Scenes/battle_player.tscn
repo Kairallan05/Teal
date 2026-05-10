@@ -1,15 +1,159 @@
 [gd_scene format=3 uid="uid://hglb6ax5ppl7"]
 
 [ext_resource type="Script" uid="uid://b6mwarvuo0qcn" path="res://Scripts/battle_player.gd" id="1_sd2tt"]
-[ext_resource type="Texture2D" uid="uid://djnjmmg83av80" path="res://Assets/Health back.png" id="2_xhviq"]
+[ext_resource type="Texture2D" uid="uid://3n4vq4cm80p3" path="res://Assets/UI_BACK.png" id="2_k56wd"]
+[ext_resource type="Texture2D" uid="uid://by2wl410jxcyk" path="res://Assets/Health back.png" id="2_xhviq"]
 [ext_resource type="Texture2D" uid="uid://dmkvf7okew5ot" path="res://Assets/Health front.png" id="3_aacdg"]
 [ext_resource type="Texture2D" uid="uid://c5tx3rj4x0d26" path="res://Assets/Health bar.png" id="4_nlypp"]
+[ext_resource type="Texture2D" uid="uid://ct2vxnmx01rru" path="res://Assets/Attack_button.png" id="5_1beb5"]
+[ext_resource type="Texture2D" uid="uid://r3vjtmajc7sk" path="res://Assets/Attack_sprites/Sword_Slice-Sheet.png" id="5_aacdg"]
+[ext_resource type="Texture2D" uid="uid://b82gkvbnok3oa" path="res://Assets/Attack_button_pressed.png" id="6_gvswm"]
+[ext_resource type="Texture2D" uid="uid://c8d8jbr6bk138" path="res://Assets/Attack_button_Hover.png" id="7_hlyhm"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_whp1n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4rty"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_xhviq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2joa"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs8mb"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrytr"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stc3i"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(960, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyva0"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(1280, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cush"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(1600, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pgm5"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(1920, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx68w"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(2240, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgt66"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(2560, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkdvd"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(2880, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgjus"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(3200, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fet6c"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(3520, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v2vg"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(3840, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t3uh"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(4160, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlqi0"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(4480, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gowh"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(4800, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5nw3"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(5120, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxbqu"]
+atlas = ExtResource("5_aacdg")
+region = Rect2(5440, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nlypp"]
+animations = [{
+"frames": [],
+"loop": false,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2joa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs8mb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrytr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stc3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyva0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cush")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pgm5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx68w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgt66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkdvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgjus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fet6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5v2vg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t3uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlqi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gowh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5nw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxbqu")
+}],
+"loop": false,
+"name": &"Sword_Slice",
+"speed": 24.0
+}]
 
 [node name="Battle_Player" type="CharacterBody3D" unique_id=667445938 groups=["player"]]
 script = ExtResource("1_sd2tt")
@@ -33,18 +177,52 @@ fov = 80.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1490638153]
 
+[node name="Control" type="Control" parent="UI" unique_id=145848361]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="UiBack" type="Sprite2D" parent="UI/Control" unique_id=1043072464]
+position = Vector2(961.00006, 546)
+scale = Vector2(6, 6)
+texture = ExtResource("2_k56wd")
+
+[node name="Attacks" type="AnimatedSprite2D" parent="UI/Control" unique_id=1024301534]
+position = Vector2(958.24994, 540.75)
+scale = Vector2(5.9921875, 6.0416665)
+sprite_frames = SubResource("SpriteFrames_nlypp")
+animation = &"Default"
+
+[node name="Attack_button" type="TextureButton" parent="UI/Control" unique_id=1941591330]
+layout_mode = 0
+offset_left = 1596.0
+offset_top = 714.0
+offset_right = 1788.0
+offset_bottom = 810.0
+texture_normal = ExtResource("5_1beb5")
+texture_pressed = ExtResource("6_gvswm")
+texture_hover = ExtResource("7_hlyhm")
+stretch_mode = 0
+
 [node name="PlayerHealth" type="TextureProgressBar" parent="UI" unique_id=1607140390]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 26.0
-offset_top = -134.0
-offset_right = 1626.0
-offset_bottom = 1466.0032
+offset_left = 146.0
+offset_top = -113.0
+offset_right = 1746.0
+offset_bottom = 1487.0032
 grow_vertical = 0
-scale = Vector2(0.25, 0.25)
-value = 100.0
+scale = Vector2(6, 6)
+value = 90.0
 radial_fill_degrees = 270.0
 texture_under = ExtResource("2_xhviq")
 texture_over = ExtResource("3_aacdg")
 texture_progress = ExtResource("4_nlypp")
+
+[connection signal="animation_finished" from="UI/Control/Attacks" to="." method="_on_attacks_animation_finished"]
+[connection signal="pressed" from="UI/Control/Attack_button" to="." method="_on_attack_button_pressed"]

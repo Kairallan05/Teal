@@ -1,12 +1,16 @@
 extends Player
 
+
 var my_turn = false
 @onready var arena: Arena = $"../.."
 @onready var camera: Camera3D = $Head/SpringArm3D/Camera
+@onready var attacks: AnimatedSprite2D = $UI/Control/Attacks
+@onready var ui_back: Sprite2D = $UI/Control/UiBack
+@onready var attack_button: TextureButton = $UI/Control/Attack_button
 var opponent : Combatant
 
 func onload():
-	pass
+	attacks.visible = false
 
 func _unhandled_input(event):
 	if my_turn:
@@ -15,14 +19,14 @@ func _unhandled_input(event):
 		Normal_Camera(event)
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("interact"):
+		arena.Next_Turn()
+	
 	if Player_Statistics.health <= 0:
 		Player_Statistics.health = Player_Statistics.maxhealth
 		Scene_Switcher.load_freeroam(Arena_Result.new(false))
 	
-	if Input.is_action_just_pressed("interact"):
-		if my_turn:
-			arena.Next_Turn()
-			Player_Statistics.equipedweapon.basic_attack(opponent)
+
 	if my_turn:
 		pass
 	else:
@@ -31,6 +35,8 @@ func _physics_process(delta: float) -> void:
 
 func playerturn() -> void:
 	my_turn = true
+	ui_back.visible = true
+	attack_button.visible = true
 	arena.battle_camera.make_current()
 	position = Vector3.ZERO
 	rotation = Vector3(0,deg_to_rad(90),0)
@@ -38,5 +44,19 @@ func playerturn() -> void:
 
 func enemyturn() -> void:
 	my_turn = false
+	ui_back.visible = false
+	attack_button.visible = false
+	get_viewport().gui_release_focus()
 	camera.make_current()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _on_attacks_animation_finished() -> void:
+	attacks.visible = false
+	arena.Next_Turn()
+	Player_Statistics.equipedweapon.basic_attack(opponent)
+
+
+func _on_attack_button_pressed() -> void:
+	attacks.visible = true
+	attacks.play("Sword_Slice")
