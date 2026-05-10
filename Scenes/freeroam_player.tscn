@@ -9,6 +9,8 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4rty"]
 
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_xph4s"]
+
 [node name="Freeroam_Player" type="CharacterBody3D" unique_id=667445938]
 script = ExtResource("1_d4rty")
 
@@ -20,8 +22,13 @@ shape = SubResource("CapsuleShape3D_d4rty")
 
 [node name="Head" type="Node3D" parent="." unique_id=1338352389]
 
-[node name="Camera" type="Camera3D" parent="Head" unique_id=136090403]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 2, 8)
+[node name="SpringArm3D" type="SpringArm3D" parent="Head" unique_id=1695478829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("SeparationRayShape3D_xph4s")
+spring_length = 9.0
+
+[node name="Camera" type="Camera3D" parent="Head/SpringArm3D" unique_id=1231372584]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 0, 0)
 fov = 80.0
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=189937837]

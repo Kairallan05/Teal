@@ -2,7 +2,7 @@ extends Player
 
 var my_turn = false
 @onready var arena: Arena = $"../.."
-@onready var camera: Camera3D = $Head/Camera
+@onready var camera: Camera3D = $Head/SpringArm3D/Camera
 var opponent : Combatant
 
 func onload():
