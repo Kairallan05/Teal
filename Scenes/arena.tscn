@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://hglb6ax5ppl7" path="res://Scenes/battle_player.tscn" id="1_lq7nq"]
 [ext_resource type="Script" uid="uid://b681pn7ga6nml" path="res://Scripts/Arena.gd" id="1_ra5jo"]
-[ext_resource type="Texture2D" uid="uid://by2wl410jxcyk" path="res://Assets/Health back.png" id="3_kcpg1"]
-[ext_resource type="Texture2D" uid="uid://dmkvf7okew5ot" path="res://Assets/Health front.png" id="4_csrox"]
-[ext_resource type="Texture2D" uid="uid://c5tx3rj4x0d26" path="res://Assets/Health bar.png" id="5_g2joa"]
+[ext_resource type="Texture2D" uid="uid://by2wl410jxcyk" path="res://Assets/UI/Health back.png" id="3_kcpg1"]
+[ext_resource type="Texture2D" uid="uid://dmkvf7okew5ot" path="res://Assets/UI/Health front.png" id="4_csrox"]
+[ext_resource type="Texture2D" uid="uid://c5tx3rj4x0d26" path="res://Assets/UI/Health bar.png" id="5_g2joa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ra5jo"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

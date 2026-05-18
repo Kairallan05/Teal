@@ -1,6 +1,6 @@
 extends Combatant
 
-var health = 40
+var health = 30
 var spot : Marker3D
 var speed = 15
 const NAME = "Tump"
@@ -46,7 +46,7 @@ func _on_turn_timer_timeout() -> void:
 	arena.Next_Turn()
 
 func attack():
-	if health <= 20:
+	if health <= 10:
 		[Charge,Jump].pick_random().call()
 	else:
 		if charging:
