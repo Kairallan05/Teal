@@ -12,8 +12,14 @@ var jump = preload("uid://drwy4486e1s7h").instantiate()
 var charging = false
 var jumping = false
 
+@onready var animation_player: AnimationPlayer = $Tump/AnimationPlayer
+@onready var animated_sprite_3d: AnimatedSprite3D = $Tump/Armature/Skeleton3D/BoneAttachment3D/AnimatedSprite3D
+
 func onload():
+	animated_sprite_3d.play("Face")
+	animation_player.play("Armature|Idle")
 	spot = get_parent()
+	
 
 func _physics_process(delta: float) -> void:
 	if health <= 0:
@@ -43,6 +49,7 @@ func _on_turn_timer_timeout() -> void:
 	jumping = false
 	global_position = spot.global_position
 	velocity = Vector3.ZERO
+	animation_player.play("Armature|Idle")
 	arena.Next_Turn()
 
 func attack():
@@ -55,11 +62,13 @@ func attack():
 			Jump()
 
 func Charge():
+	animation_player.play("Armature|charge")
 	charge.Charge_Start(self)
 	charging = true
 	jumping = false
 
 func Jump():
+	animation_player.play("Armature|Jump")
 	jump.jump_start(self)
 	charging = false
 	jumping = true

@@ -1,28 +1,18 @@
 [gd_scene format=3 uid="uid://cajv4afrhgx57"]
 
 [ext_resource type="Script" uid="uid://602m1jrjr8nl" path="res://Scripts/battle_tump.gd" id="1_wl3y2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4cad"]
-albedo_color = Color(0.6274321, 0.0712168, 0.13106471, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_lxk0e"]
-material = SubResource("StandardMaterial3D_p4cad")
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_rpwcb"]
+[ext_resource type="PackedScene" uid="uid://tgkll6klajgg" path="res://Scenes/tump.tscn" id="2_wyguv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wl3y2"]
 size = Vector3(1, 0.2644043, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wyguv"]
+height = 1.5048828
 
 [node name="battle_tump" type="CharacterBody3D" unique_id=1983532164]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_wl3y2")
-
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=95120586]
-mesh = SubResource("SphereMesh_lxk0e")
-
-[node name="Body" type="CollisionShape3D" parent="." unique_id=1617303292]
-shape = SubResource("SphereShape3D_rpwcb")
 
 [node name="Turn_Timer" type="Timer" parent="." unique_id=555710707]
 wait_time = 16.0
@@ -39,5 +29,32 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39245605, 0)
 shape = SubResource("BoxShape3D_wl3y2")
 
+[node name="Tump" parent="." unique_id=132658985 instance=ExtResource("2_wyguv")]
+transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 0, -0.54592437, 0)
+
+[node name="Skeleton3D" parent="Tump/Armature" parent_id_path=PackedInt32Array(132658985, 1055178017) index="0" unique_id=345428258]
+bones/0/rotation = Quaternion(0.69636434, -0.12278782, -0.12278781, 0.6963642)
+bones/1/rotation = Quaternion(0, 0.17364813, 0, 0.9848078)
+bones/2/rotation = Quaternion(-0.7367795, -0.19185656, -0.072069556, 0.64432377)
+bones/3/rotation = Quaternion(-0.60905665, -0.37060174, -0.29686525, 0.63527584)
+bones/5/rotation = Quaternion(0.73334205, -0.18384075, 0.26889977, 0.5967454)
+bones/6/rotation = Quaternion(0.8761304, 0.42470872, -0.04106225, 0.22434825)
+bones/8/rotation = Quaternion(-0.7010575, -0.09229597, -0.09229597, 0.7010574)
+bones/9/rotation = Quaternion(-0.7071068, 0, 0, 0.7071067)
+bones/11/rotation = Quaternion(0.37074548, -0.43765038, -0.5294794, 0.6250292)
+bones/13/rotation = Quaternion(0.7010574, -0.09229599, 0.092295945, 0.7010574)
+bones/14/rotation = Quaternion(0.7071068, 3.0908616e-08, -3.0908623e-08, 0.7071067)
+bones/15/rotation = Quaternion(3.469447e-18, -2.50416e-25, -6.938894e-18, 1)
+bones/16/rotation = Quaternion(-4.272798e-08, -4.3790013e-08, -0.64637494, 0.7630199)
+
+[node name="BoneAttachment3D" parent="Tump/Armature/Skeleton3D" index="1" unique_id=1215393691]
+transform = Transform3D(0.9999998, -4.4703476e-08, -2.9802322e-08, -8.940697e-08, 0, -0.9999999, -1.400251e-08, 0.9999997, -5.096496e-09, -4.470348e-10, 0, 0.009999998)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=173444195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2475586, 0)
+shape = SubResource("CapsuleShape3D_wyguv")
+
 [connection signal="timeout" from="Turn_Timer" to="." method="_on_turn_timer_timeout"]
 [connection signal="body_entered" from="Bottom_box" to="." method="_on_bottom_box_body_entered"]
+
+[editable path="Tump"]

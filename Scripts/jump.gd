@@ -8,6 +8,7 @@ var target
 var midpoint
 
 func jump_start(user):
+	user.look_at(user.player.global_position)
 	t = 0.0
 	origin = user.global_position
 	target = user.player.global_position
