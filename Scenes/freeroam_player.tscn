@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://bs38ehcoaymgr"]
 
 [ext_resource type="Script" uid="uid://dgo8rqbi0u6qw" path="res://Scripts/freeroam_player.gd" id="1_d4rty"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_whp1n"]
+[ext_resource type="PackedScene" uid="uid://wyhj6nd7dsj4" path="res://Scenes/Player_model.tscn" id="2_n31ll"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4rty"]
 
@@ -11,10 +10,11 @@
 [node name="Freeroam_Player" type="CharacterBody3D" unique_id=667445938]
 script = ExtResource("1_d4rty")
 
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1874676428]
-mesh = SubResource("CapsuleMesh_whp1n")
+[node name="Player_model" parent="." unique_id=1291154741 instance=ExtResource("2_n31ll")]
+transform = Transform3D(-0.5, 0, 4.371139e-08, 0, 0.5, 0, -4.371139e-08, 0, -0.5, 0, -0.15158355, 0)
 
 [node name="Body" type="CollisionShape3D" parent="." unique_id=1799229143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_d4rty")
 
 [node name="Head" type="Node3D" parent="." unique_id=1338352389]
@@ -27,3 +27,6 @@ spring_length = 9.0
 [node name="Camera" type="Camera3D" parent="Head/SpringArm3D" unique_id=1231372584]
 transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 0, 0)
 fov = 80.0
+
+[node name="Front" type="Marker3D" parent="." unique_id=1183136518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

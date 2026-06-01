@@ -14,10 +14,16 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	navigation_agent_3d.target_position = player.global_position
-	look_at(Vector3(player.global_position.x,0,player.global_position.z))
+	
 
 func _physics_process(delta: float) -> void:
 	var next_path = navigation_agent_3d.get_next_path_position()
+	if next_path != global_position:
+		animation_player.play("Armature|charge")
+	else:
+		animation_player.play("Armature|Idle")
+		look_at(Vector3(player.global_position.x,0.0,player.global_position.z))
+	look_at(next_path)
 	global_position = global_position.move_toward(next_path, delta * SPEED)
 	if (player.global_position - global_position).length() < CATCHDISTANCE:
 		Scene_Switcher.load_arena(Arena_Config.new(BATTLE_TUMP,name))
