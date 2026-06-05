@@ -47,13 +47,7 @@ SimpleGrass="*uid://bfq0snth8sj3h"
 
 [display]
 
-window/size/viewport_width=2560
-window/size/viewport_height=1440
 window/size/mode=3
-window/size/borderless=true
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
-window/stretch/scale_mode="integer"
 
 [editor_plugins]
 

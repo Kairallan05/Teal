@@ -20,10 +20,12 @@ func _physics_process(delta: float) -> void:
 	var next_path = navigation_agent_3d.get_next_path_position()
 	if next_path != global_position:
 		animation_player.play("Armature|charge")
+		look_at(next_path)
 	else:
 		animation_player.play("Armature|Idle")
 		look_at(Vector3(player.global_position.x,0.0,player.global_position.z))
-	look_at(next_path)
+		rotation_degrees.x = 0.0
+
 	global_position = global_position.move_toward(next_path, delta * SPEED)
 	if (player.global_position - global_position).length() < CATCHDISTANCE:
 		Scene_Switcher.load_arena(Arena_Config.new(BATTLE_TUMP,name))
