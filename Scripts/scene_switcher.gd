@@ -20,6 +20,8 @@ func _deferred_load_arena(config:Arena_Config):
 	get_tree().root.add_child(current_scene)
 	get_tree().current_scene = current_scene
 # apply configuration to the arena scene
+	var arena_mesh = config.arena_mesh.instantiate()
+	current_scene.get_node("Mesh").add_child(arena_mesh)
 	combatant_name = config.combatant_name
 	var combatant = config.combatant.instantiate()
 	current_scene.get_node("Enemy_Spot").add_child(combatant)

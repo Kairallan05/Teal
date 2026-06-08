@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c6mpy3g4hsocn"]
+
+[ext_resource type="Script" uid="uid://y75vinfvtge0" path="res://Scripts/freeroam_thump.gd" id="1_ew1w8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lo1ts"]
+albedo_color = Color(0.78054845, 0, 0.017683623, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_muk4h"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b7ril"]
+
+[node name="freeroam_Thump" type="CharacterBody3D" unique_id=1738272522]
+script = ExtResource("1_ew1w8")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1979039293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_lo1ts")
+mesh = SubResource("CapsuleMesh_muk4h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=793612667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_b7ril")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2047009897]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://vp4aw68symeh"
-path="res://.godot/imported/Teal_demo_world.fbx-7d74a549f7a98f4c8909427b482bc864.scn"
+uid="uid://ckmqx8snckmau"
+path="res://.godot/imported/Fight Idle.fbx-de9d5c651dd43c4dccc05e9dcf2adcab.scn"
 
 [deps]
 
-source_file="res://Assets/Player Model/Teal_demo_world.fbx"
-dest_files=["res://.godot/imported/Teal_demo_world.fbx-7d74a549f7a98f4c8909427b482bc864.scn"]
+source_file="res://Assets/Player Model/Fight Idle.fbx"
+dest_files=["res://.godot/imported/Fight Idle.fbx-de9d5c651dd43c4dccc05e9dcf2adcab.scn"]
 
 [params]
 

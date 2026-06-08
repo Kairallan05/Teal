@@ -11,7 +11,6 @@ var falling = false
 @onready var head: Node3D = $Head
 @onready var player_model: Node3D = $Player_model
 @onready var animation_player: AnimationPlayer = $Player_model/AnimationPlayer
-@onready var front: Marker3D = $Front
 
 
 func _ready() -> void:

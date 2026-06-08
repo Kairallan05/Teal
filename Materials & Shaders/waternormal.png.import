@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd732lq0r3588"
-path.s3tc="res://.godot/imported/2145.jpg-61b1b857d8bd3c28ec3865fd61fccefd.s3tc.ctex"
+uid="uid://c13errg352gpr"
+path.s3tc="res://.godot/imported/waternormal.png-4cb48d6dc5d658fba50cafe7e3a57169.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Materials & Shaders/2145.jpg"
-dest_files=["res://.godot/imported/2145.jpg-61b1b857d8bd3c28ec3865fd61fccefd.s3tc.ctex"]
+source_file="res://Materials & Shaders/waternormal.png"
+dest_files=["res://.godot/imported/waternormal.png-4cb48d6dc5d658fba50cafe7e3a57169.s3tc.ctex"]
 
 [params]
 

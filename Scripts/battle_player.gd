@@ -10,6 +10,7 @@ var my_turn = false
 @onready var player_health: TextureProgressBar = $UI/Control/UiBack/PlayerHealth
 var opponent : Combatant
 
+
 func onload():
 	attacks.visible = false
 
@@ -20,8 +21,6 @@ func _unhandled_input(event):
 		Normal_Camera(event)
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
-		arena.Next_Turn()
 	
 	player_health.max_value = Player_Statistics.maxhealth
 	player_health.value = Player_Statistics.health
@@ -32,7 +31,10 @@ func _physics_process(delta: float) -> void:
 	
 
 	if my_turn:
-		pass
+		if not is_on_floor():
+			velocity += get_gravity() * delta
+		animation_player.play("Fight_idle")
+		move_and_slide()
 	else:
 		Normal_Movement(delta)
 
@@ -43,7 +45,9 @@ func playerturn() -> void:
 	attack_button.visible = true
 	arena.battle_camera.make_current()
 	position = Vector3.ZERO
-	rotation = Vector3(0,deg_to_rad(90),0)
+	velocity = Vector3.ZERO
+	rotation_degrees.y = 0
+	player_model.rotation_degrees.y = 180
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 func enemyturn() -> void:

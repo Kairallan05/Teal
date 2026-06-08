@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b3gux3fn5e7pa"
-path="res://.godot/imported/Grass_mesh.fbx-cfe9da7cbbcf08c28d997632ad23a752.scn"
+uid="uid://cgmq3m2obf5pc"
+path="res://.godot/imported/Cross Punch.fbx-c1e72838e8c5c978ba045ebb784df90e.scn"
 
 [deps]
 
-source_file="res://Grassify/Grass_mesh.fbx"
-dest_files=["res://.godot/imported/Grass_mesh.fbx-cfe9da7cbbcf08c28d997632ad23a752.scn"]
+source_file="res://Assets/Player Model/Cross Punch.fbx"
+dest_files=["res://.godot/imported/Cross Punch.fbx-c1e72838e8c5c978ba045ebb784df90e.scn"]
 
 [params]
 
