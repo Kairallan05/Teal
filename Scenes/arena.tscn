@@ -57,5 +57,7 @@ texture_under = ExtResource("3_kcpg1")
 texture_over = ExtResource("4_csrox")
 texture_progress = ExtResource("5_g2joa")
 
+[node name="Attack_Container" type="Node3D" parent="." unique_id=487908959]
+
 [connection signal="enemyturn" from="." to="Player_Spot/Battle_Player" method="enemyturn"]
 [connection signal="playerturn" from="." to="Player_Spot/Battle_Player" method="playerturn"]

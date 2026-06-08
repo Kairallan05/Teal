@@ -22,6 +22,8 @@ varying float v_wind_intensity;
 
 void vertex() {
 	
+	
+	
 	vec3 world_pos = (MODEL_MATRIX * vec4(0.0,0.0,0.0,1.0)).xyz;
 	float patch_factor = texture(wind_noise,world_pos.xz / patch_scale).r;
 	v_patch = patch_factor;

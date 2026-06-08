@@ -2,17 +2,18 @@ extends Combatant
 
 var health = 50
 var spot : Marker3D
-var speed = 10
+var speed = 8
 const NAME = "Thump"
 const DAMAGE = 20
-var charge = preload("uid://ds7s66p7tn81s").instantiate()
-var jump = preload("uid://drwy4486e1s7h").instantiate()
-var charging = false
 var jumping = false
+var my_turn
+
+@onready var turn_timer: Timer = $Turn_Timer
+var ripple = preload("uid://2oqn8hwjkgu3").instantiate()
 
 func onload():
 	spot = get_parent()
-	
+	my_turn = false
 
 func _physics_process(delta: float) -> void:
 	if health <= 0:
@@ -22,46 +23,38 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
-	if charging:
-		charge.move(self,speed,DAMAGE)
 	if jumping:
-		jump.jumping(self)
+		ripple.jumping(self)
+	
 	move_and_slide()
 
 func playerturn():
+	my_turn = false
 	look_at(player.global_position)
 	rotation_degrees.x = 0
 
 func enemyturn():
+	my_turn = true
 	await get_tree().create_timer(1.0).timeout
-	[Charge,Jump].pick_random().call()
+	turn_timer.start()
+	attack()
+
+func attack():
+	Jump()
+
+func Jump():
+	jumping = false
+	await get_tree().create_timer(1.0).timeout
+	if my_turn:
+		ripple.jump_start(self)
+		jumping = true
+
+func _on_bottom_box_body_entered(body: Node3D) -> void:
+	ripple.jump_end(self,body,DAMAGE)
+
 
 func _on_turn_timer_timeout() -> void:
-	charging = false
 	jumping = false
 	global_position = spot.global_position
 	velocity = Vector3.ZERO
 	arena.Next_Turn()
-
-func attack():
-	if health <= 10:
-		[Charge,Jump].pick_random().call()
-	else:
-		if charging:
-			Charge()
-		if jumping:
-			Jump()
-
-func Charge():
-	charge.Charge_Start(self)
-	charging = true
-	jumping = false
-
-func Jump():
-	jump.jump_start(self)
-	charging = false
-	jumping = true
-
-
-func _on_bottom_box_body_entered(body: Node3D) -> void:
-	jump.jump_end(self,body,DAMAGE)

@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
-const SPEED = 9
+const SPEED = 7
 const CATCHDISTANCE = 2
 const CHASEDISTANCE = 20
-const BATTLE_THUMP = preload("uid://cajv4afrhgx57")
+const BATTLE_THUMP = preload("uid://bhn38kmkg3qp7")
 const GRASS_ARENA = preload("uid://db30o6ccxlpue")
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D

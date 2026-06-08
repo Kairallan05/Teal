@@ -5,41 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://c6mpy3g4hsocn" path="res://Scenes/freeroam_thump.tscn" id="3_874vt"]
 [ext_resource type="PackedScene" uid="uid://byx50m1eyuets" path="res://Scenes/freeroam_tump.tscn" id="3_btrko"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hnokw"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_btrko"]
-sky_material = SubResource("ProceduralSkyMaterial_hnokw")
-
-[sub_resource type="Environment" id="Environment_874vt"]
-background_mode = 2
-sky = SubResource("Sky_btrko")
-tonemap_mode = 2
-glow_enabled = true
-fog_enabled = true
-fog_mode = 1
-fog_light_color = Color(0.78235406, 0.78235406, 0.78235406, 1)
-fog_density = 1.0
-fog_depth_curve = 2.8284235
-fog_depth_begin = 0.0
-fog_depth_end = 376.7
-
 [sub_resource type="NavigationMesh" id="NavigationMesh_s37ah"]
 vertices = PackedVector3Array(-11.994875, 21.958382, -49.600075, 1.005125, 21.958382, -48.600075, 2.005125, 21.958382, -55.600075, -11.994875, 21.958382, -74.600075, 37.005127, 21.958382, -55.600075, 38.005127, 21.958382, -48.600075, 51.005127, 21.958382, -49.600075, 51.005127, 21.958382, -74.600075, 51.005127, 6.9583826, -74.600075, -10.994875, 6.9583826, -74.600075, -11.994875, 6.9583826, -30.600075, -10.994875, 7.2083826, 27.399925, 51.005127, 7.2083826, 27.399925, 24.005125, 28.958382, -0.60007477, 22.005125, 29.208382, -0.60007477, 23.005125, 29.208382, 1.3999252, 25.005125, 28.958382, 1.3999252, 5.005125, 28.458382, -1.6000748, 15.005125, 28.958382, -0.60007477, 24.005125, 28.458382, -2.6000748, 33.005127, 28.458382, -49.600075, 5.005125, 28.458382, -50.600075, 26.005125, 28.708382, -1.6000748, 34.005127, 28.458382, -1.6000748, -11.994875, 21.958382, -2.6000748, 1.005125, 21.958382, -3.6000748, 7.005125, 21.958382, -16.600075, 5.005125, 21.958382, -15.600075, 7.005125, 21.958382, -13.600075, 33.005127, 21.958382, -5.600075, 7.005125, 21.958382, -5.600075, 33.005127, 21.958382, -49.600075, 7.005125, 21.958382, -49.600075, 38.005127, 21.958382, -3.6000748, 51.005127, 21.958382, -1.6000748, -9.994875, 22.208382, 27.399925, -9.994875, 22.958382, 30.399925, -8.994875, 22.208382, 27.399925, -0.99487495, 22.208382, 27.399925, -0.99487495, 22.958382, 30.399925, 0.005125046, 22.208382, 27.399925, 7.005125, 22.208382, 27.399925, 7.005125, 22.958382, 30.399925, 8.005125, 22.208382, 27.399925, 15.005125, 22.208382, 27.399925, 15.005125, 22.958382, 30.399925, 16.005125, 22.208382, 27.399925, -12.994875, 22.208382, 25.399925, 21.005125, 22.208382, 27.399925, 21.005125, 22.208382, 17.399925, 12.005125, 21.958382, 16.399925, 12.005125, 21.958382, 3.3999252, 2.005125, 21.958382, 3.3999252, 32.005127, 22.208382, 27.399925, 32.005127, 22.958382, 30.399925, 33.005127, 22.208382, 27.399925, 40.005127, 22.208382, 27.399925, 40.005127, 22.958382, 30.399925, 41.005127, 22.208382, 27.399925, 48.005127, 22.208382, 27.399925, 49.005127, 22.958382, 30.399925, 49.005127, 22.208382, 27.399925, 52.005127, 22.208382, 25.399925, 27.005125, 21.958382, 16.399925, 37.005127, 21.958382, 3.3999252, 27.005125, 21.958382, 3.3999252, 30.005125, 29.708382, 0.39992523, 36.005127, 29.958382, 1.3999252, 36.005127, 29.708382, -0.60007477)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 7), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 12), PackedInt32Array(16, 15, 13), PackedInt32Array(13, 15, 14), PackedInt32Array(18, 17, 19), PackedInt32Array(19, 17, 21), PackedInt32Array(19, 21, 20), PackedInt32Array(19, 22, 13), PackedInt32Array(13, 22, 16), PackedInt32Array(22, 19, 23), PackedInt32Array(23, 19, 20), PackedInt32Array(25, 24, 1), PackedInt32Array(1, 24, 0), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29), PackedInt32Array(29, 30, 28), PackedInt32Array(32, 31, 26), PackedInt32Array(26, 31, 29), PackedInt32Array(5, 6, 33), PackedInt32Array(33, 6, 34), PackedInt32Array(37, 36, 35), PackedInt32Array(40, 39, 38), PackedInt32Array(43, 42, 41), PackedInt32Array(46, 45, 44), PackedInt32Array(37, 35, 47), PackedInt32Array(49, 48, 46), PackedInt32Array(46, 44, 49), PackedInt32Array(49, 44, 50), PackedInt32Array(52, 51, 50), PackedInt32Array(50, 44, 43), PackedInt32Array(50, 43, 41), PackedInt32Array(38, 37, 47), PackedInt32Array(40, 38, 47), PackedInt32Array(24, 25, 52), PackedInt32Array(41, 40, 50), PackedInt32Array(50, 40, 47), PackedInt32Array(50, 47, 52), PackedInt32Array(52, 47, 24), PackedInt32Array(55, 54, 53), PackedInt32Array(58, 57, 56), PackedInt32Array(61, 60, 59), PackedInt32Array(62, 61, 59), PackedInt32Array(62, 59, 58), PackedInt32Array(62, 58, 56), PackedInt32Array(49, 63, 48), PackedInt32Array(48, 63, 53), PackedInt32Array(55, 63, 56), PackedInt32Array(56, 63, 62), PackedInt32Array(62, 63, 64), PackedInt32Array(62, 64, 34), PackedInt32Array(55, 53, 63), PackedInt32Array(64, 33, 34), PackedInt32Array(63, 65, 64), PackedInt32Array(68, 67, 66)]
 cell_size = 1.0
 
 [node name="Demo_World" type="Node3D" unique_id=414406650]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1443773683]
-environment = SubResource("Environment_874vt")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1600947861]
-transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, 0.4813601, -0.5867902, 0.65112954, -0.13524984, 0.68423474, 0.71661025, 0, 45.11995, 0)
-light_color = Color(0.8847096, 0.92934376, 0.44228122, 1)
-light_energy = 2.933
-shadow_enabled = true
 
 [node name="Terrain" type="NavigationRegion3D" parent="." unique_id=265971104]
 navigation_mesh = SubResource("NavigationMesh_s37ah")

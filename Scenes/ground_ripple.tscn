@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://2oqn8hwjkgu3"]
+
+[ext_resource type="Script" uid="uid://br72l1jk3hjni" path="res://Scripts/Ground_Ripple.gd" id="1_5tcpu"]
+
+[node name="Ground_Ripple" type="Node" unique_id=1265889626]
+script = ExtResource("1_5tcpu")
