@@ -4,7 +4,7 @@ const SPEED = 7
 const CATCHDISTANCE = 2
 const CHASEDISTANCE = 20
 const BATTLE_THUMP = preload("uid://bhn38kmkg3qp7")
-const GRASS_ARENA = preload("uid://db30o6ccxlpue")
+const SAND_ARENA = preload("uid://kpmtfhoct4vq")
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var player: CharacterBody3D = $"../../Freeroam_Player"
@@ -30,4 +30,4 @@ func _physics_process(delta: float) -> void:
 		rotation_degrees.x = 0.0
 		pass
 	if (player.global_position - global_position).length() < CATCHDISTANCE:
-		Scene_Switcher.load_arena(Arena_Config.new(BATTLE_THUMP,name,GRASS_ARENA))
+		Scene_Switcher.load_arena(Arena_Config.new(BATTLE_THUMP,name,SAND_ARENA))

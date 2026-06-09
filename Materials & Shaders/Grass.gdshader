@@ -20,10 +20,8 @@ uniform float gust_frequency = 0.08;
 
 varying float v_wind_intensity;
 
-void vertex() {
-	
-	
-	
+void vertex() 
+{
 	vec3 world_pos = (MODEL_MATRIX * vec4(0.0,0.0,0.0,1.0)).xyz;
 	float patch_factor = texture(wind_noise,world_pos.xz / patch_scale).r;
 	v_patch = patch_factor;
@@ -49,7 +47,8 @@ void vertex() {
 	VERTEX.y -= y_drop;
 }
 
-void fragment() {
+void fragment() 
+{
 	vec3 gradient = mix(colour_top.rgb, colour_bottom.rgb, UV.y);
 	vec3 varied_colour = mix(gradient,colour_variation,v_patch * 0.3);
 	ALBEDO = varied_colour;

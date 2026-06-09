@@ -1,7 +1,6 @@
 extends Node
 
 var user
-var hit
 var t
 var origin
 var target
