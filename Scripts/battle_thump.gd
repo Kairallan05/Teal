@@ -7,7 +7,7 @@ const NAME = "Thump"
 const DAMAGE = 20
 var jumping = false
 var my_turn
-@onready var trauma = 0.4
+@onready var trauma = 0.3
 @onready var turn_timer: Timer = $Turn_Timer
 @onready var attack_container: Node3D = $"../../Attack_Container"
 @onready var feet: Marker3D = $Feet

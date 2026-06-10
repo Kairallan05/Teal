@@ -5,7 +5,7 @@ var spot : Marker3D
 var speed = 15
 const NAME = "Tump"
 const DAMAGE = 15
-@onready var trauma = 0.3
+@onready var trauma = 0.2
 @onready var turn_timer: Timer = $Turn_Timer
 @onready var raycast: RayCast3D = $Raycast
 var charge = preload("uid://ds7s66p7tn81s").instantiate()

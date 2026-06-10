@@ -22,4 +22,4 @@ func Increase_Radius(delta):
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 			Player_Statistics.health -= damage
-			body.velocity.y += 15
+			body.velocity.y += 10
