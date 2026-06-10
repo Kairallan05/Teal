@@ -4,7 +4,7 @@ var t
 var origin
 var target
 var midpoint
-
+var trauma = 0.2
 
 func jump_start(user):
 	user.look_at(user.player.global_position)
@@ -31,5 +31,6 @@ func jump_end(user,hit,damage):
 			Ripple.global_position = user.feet.global_position
 		if hit.is_in_group("player"):
 			Player_Statistics.health -= damage
+			user.player.camera.add_trauma(trauma)
 			hit.velocity += origin.direction_to(hit.global_position).normalized() * 25
 			hit.velocity.y += 5

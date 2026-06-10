@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://3n4vq4cm80p3" path="res://Assets/UI/UI_BACK.png" id="2_k56wd"]
 [ext_resource type="Texture2D" uid="uid://by2wl410jxcyk" path="res://Assets/UI/Health back.png" id="2_xhviq"]
 [ext_resource type="Texture2D" uid="uid://dmkvf7okew5ot" path="res://Assets/UI/Health front.png" id="3_aacdg"]
+[ext_resource type="Script" uid="uid://ds3sfcwpy6wet" path="res://Scripts/camera.gd" id="3_jsw64"]
 [ext_resource type="Texture2D" uid="uid://c5tx3rj4x0d26" path="res://Assets/UI/Health bar.png" id="4_nlypp"]
 [ext_resource type="Texture2D" uid="uid://ct2vxnmx01rru" path="res://Assets/UI/Attack_button.png" id="5_1beb5"]
 [ext_resource type="Texture2D" uid="uid://r3vjtmajc7sk" path="res://Assets/Attack_sprites/Sword_Slice-Sheet.png" id="5_aacdg"]
@@ -15,6 +16,10 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d4rty"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_xhviq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jsw64"]
+fractal_octaves = 4
+domain_warp_enabled = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2joa"]
 atlas = ExtResource("5_aacdg")
@@ -176,6 +181,8 @@ spring_length = 9.0
 [node name="Camera" type="Camera3D" parent="Head/SpringArm3D" unique_id=1014991719]
 transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 0, 0)
 fov = 80.0
+script = ExtResource("3_jsw64")
+noise = SubResource("FastNoiseLite_jsw64")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1490638153]
 

@@ -5,6 +5,7 @@ var spot : Marker3D
 var speed = 15
 const NAME = "Tump"
 const DAMAGE = 15
+@onready var trauma = 0.3
 @onready var turn_timer: Timer = $Turn_Timer
 @onready var raycast: RayCast3D = $Raycast
 var charge = preload("uid://ds7s66p7tn81s").instantiate()
@@ -30,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	if charging:
-		charge.move(self,speed,DAMAGE)
+		charge.move(self,speed,DAMAGE,trauma)
 	if jumping:
 		jump.jumping(self)
 	move_and_slide()
@@ -76,3 +77,4 @@ func Jump():
 
 func _on_bottom_box_body_entered(body: Node3D) -> void:
 	jump.jump_end(self,body,DAMAGE)
+	player.camera.add_trauma(trauma)

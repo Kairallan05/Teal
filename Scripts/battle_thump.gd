@@ -7,7 +7,7 @@ const NAME = "Thump"
 const DAMAGE = 20
 var jumping = false
 var my_turn
-
+@onready var trauma = 0.4
 @onready var turn_timer: Timer = $Turn_Timer
 @onready var attack_container: Node3D = $"../../Attack_Container"
 @onready var feet: Marker3D = $Feet
@@ -53,6 +53,7 @@ func Jump():
 
 func _on_bottom_box_body_entered(body: Node3D) -> void:
 	ripple.jump_end(self,body,DAMAGE)
+	player.camera.add_trauma(trauma)
 
 
 func _on_turn_timer_timeout() -> void:

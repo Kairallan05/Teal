@@ -3,7 +3,7 @@ extends Node
 var hit
 var target
 
-func move(user,move_speed,damage):
+func move(user,move_speed,damage,trauma):
 	user.velocity = target * move_speed
 	if user.raycast.is_colliding():
 		var collider = user.raycast.get_collider()
@@ -13,6 +13,7 @@ func move(user,move_speed,damage):
 			if collider.is_in_group("player"):
 				if !hit:
 					Player_Statistics.health -= damage
+					user.player.camera.add_trauma(trauma)
 					collider.velocity += user.velocity * 1.5
 					collider.velocity.y += 7.5
 					hit = true
