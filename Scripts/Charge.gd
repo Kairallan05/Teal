@@ -1,10 +1,7 @@
 extends Node
 
-var user
-var move_speed
 var hit
 var target
-var damage
 
 func move(user,move_speed,damage):
 	user.velocity = target * move_speed

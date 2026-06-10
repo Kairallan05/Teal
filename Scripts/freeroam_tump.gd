@@ -15,7 +15,7 @@ func _ready() -> void:
 	animated_sprite_3d.play("Face")
 	animation_player.play("Armature|charge")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	navigation_agent_3d.target_position = player.global_position
 	
 

@@ -5,6 +5,7 @@ class_name Arena
 @onready var battle_player: CharacterBody3D = $Player_Spot/Battle_Player
 @onready var enemy_spot: Marker3D = $Enemy_Spot
 @onready var enemy_health: TextureProgressBar = $Battle_UI/Control/Enemy_health
+@onready var attack_container: Node3D = $Attack_Container
 var Enemy : Combatant
 
 enum Turn{player,enemy}
@@ -13,7 +14,7 @@ signal playerturn()
 signal enemyturn()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	enemy_health.value = Enemy.health
 
 func onload() -> void:
@@ -31,3 +32,5 @@ func Next_Turn():
 		Turn.enemy:
 			turn = Turn.player
 			playerturn.emit()
+			for n in attack_container.get_children():
+				n.queue_free()

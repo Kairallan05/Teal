@@ -40,5 +40,8 @@ collision_mask = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39245605, 0)
 shape = SubResource("BoxShape3D_gon26")
 
+[node name="Feet" type="Marker3D" parent="." unique_id=1767259860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
 [connection signal="timeout" from="Turn_Timer" to="." method="_on_turn_timer_timeout"]
 [connection signal="body_entered" from="Bottom_box" to="." method="_on_bottom_box_body_entered"]

@@ -9,6 +9,8 @@ var jumping = false
 var my_turn
 
 @onready var turn_timer: Timer = $Turn_Timer
+@onready var attack_container: Node3D = $"../../Attack_Container"
+@onready var feet: Marker3D = $Feet
 var ripple = preload("uid://2oqn8hwjkgu3").instantiate()
 
 func onload():

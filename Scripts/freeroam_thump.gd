@@ -12,7 +12,7 @@ const SAND_ARENA = preload("uid://kpmtfhoct4vq")
 func _ready() -> void:
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	navigation_agent_3d.target_position = player.global_position
 	
 

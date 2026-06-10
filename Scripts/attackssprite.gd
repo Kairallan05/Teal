@@ -7,8 +7,3 @@ func _ready() -> void:
 		scale = Vector2(8,8)
 	if get_viewport().get_visible_rect().size.y == 1080:
 		scale = Vector2(6,6)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

@@ -1,11 +1,10 @@
 extends Node
 
-var user
-var hit
 var t
 var origin
 var target
 var midpoint
+
 
 func jump_start(user):
 	user.look_at(user.player.global_position)
@@ -26,6 +25,10 @@ func jump_end(user,hit,damage):
 	if user.jumping:
 		if hit.is_in_group("floor"):
 			user.attack()
+			var Ripple = preload("uid://ccl0u5ljqusv2").instantiate()
+			Ripple.damage = damage
+			user.attack_container.add_child(Ripple)
+			Ripple.global_position = user.feet.global_position
 		if hit.is_in_group("player"):
 			Player_Statistics.health -= damage
 			hit.velocity += origin.direction_to(hit.global_position).normalized() * 25
