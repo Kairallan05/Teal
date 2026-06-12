@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://dn1dr1yonpjno" path="res://Scripts/battle_thump.gd" id="1_gon26"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lo1ts"]
-albedo_color = Color(0.78054845, 0, 0.017683623, 1)
+transparency = 1
+albedo_color = Color(0.78039217, 0, 0.019607844, 0.38039216)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_muk4h"]
 
@@ -43,5 +44,9 @@ shape = SubResource("BoxShape3D_gon26")
 [node name="Feet" type="Marker3D" parent="." unique_id=1767259860]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
+[node name="Spin_Timer" type="Timer" parent="." unique_id=126582082]
+wait_time = 0.5
+
 [connection signal="timeout" from="Turn_Timer" to="." method="_on_turn_timer_timeout"]
 [connection signal="body_entered" from="Bottom_box" to="." method="_on_bottom_box_body_entered"]
+[connection signal="timeout" from="Spin_Timer" to="." method="_on_spin_timer_timeout"]

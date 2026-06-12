@@ -27,6 +27,8 @@ func jump_end(user,hit,damage):
 			user.attack()
 			var Ripple = preload("uid://ccl0u5ljqusv2").instantiate()
 			Ripple.damage = damage
+			Ripple.size = 20.0
+			Ripple.speed = 5.0
 			user.attack_container.add_child(Ripple)
 			Ripple.global_position = user.feet.global_position
 		if hit.is_in_group("player"):

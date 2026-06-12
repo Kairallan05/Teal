@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b5vchwrij1m70"]
+
+[ext_resource type="Script" uid="uid://5doer5wvpvkk" path="res://Scripts/rock.gd" id="1_44ojt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ndjn"]
+albedo_color = Color(0.28851813, 0.28851795, 0.28851798, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2ndjn"]
+material = SubResource("StandardMaterial3D_2ndjn")
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_44ojt"]
+radius = 0.20004702
+
+[node name="Rock" type="Area3D" unique_id=1356603390]
+script = ExtResource("1_44ojt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=92104438]
+mesh = SubResource("SphereMesh_2ndjn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1362515495]
+shape = SubResource("SphereShape3D_44ojt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -6,13 +6,15 @@ var speed = 8
 const NAME = "Thump"
 const DAMAGE = 20
 var jumping = false
+var spinning = false
 var my_turn
 @onready var trauma = 0.3
 @onready var turn_timer: Timer = $Turn_Timer
+@onready var spin_timer: Timer = $Spin_Timer
 @onready var attack_container: Node3D = $"../../Attack_Container"
 @onready var feet: Marker3D = $Feet
 var ripple = preload("uid://2oqn8hwjkgu3").instantiate()
-
+var spin = preload("uid://603il7q3a821").instantiate()
 func onload():
 	spot = get_parent()
 	my_turn = false
@@ -27,6 +29,8 @@ func _physics_process(delta: float) -> void:
 	
 	if jumping:
 		ripple.jumping(self)
+	if spinning:
+		spin.spinning(delta)
 	
 	move_and_slide()
 
@@ -42,7 +46,7 @@ func enemyturn():
 	attack()
 
 func attack():
-	Jump()
+	Spin_attack()
 
 func Jump():
 	jumping = false
@@ -51,13 +55,24 @@ func Jump():
 		ripple.jump_start(self)
 		jumping = true
 
+func Spin_attack():
+	spin.Spin_start(self,DAMAGE)
+	spinning = true
+
 func _on_bottom_box_body_entered(body: Node3D) -> void:
 	ripple.jump_end(self,body,DAMAGE)
 	player.camera.add_trauma(trauma)
 
 
 func _on_turn_timer_timeout() -> void:
+	if spinning:
+		spin_timer.stop()
 	jumping = false
+	spinning = false
 	global_position = spot.global_position
 	velocity = Vector3.ZERO
 	arena.Next_Turn()
+
+
+func _on_spin_timer_timeout() -> void:
+	spin.Launch()
