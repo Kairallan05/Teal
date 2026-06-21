@@ -8,6 +8,7 @@ const SAND_ARENA = preload("uid://kpmtfhoct4vq")
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var player: CharacterBody3D = $"../../Freeroam_Player"
+@onready var mesh: MeshInstance3D = $Mesh
 
 func _ready() -> void:
 	pass
@@ -21,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	
 	if (player.global_position - global_position).length() < CHASEDISTANCE:
 		global_position = global_position.move_toward(next_path, delta * SPEED)
+		
 		if next_path != global_position:
 			look_at(next_path)
 		else:

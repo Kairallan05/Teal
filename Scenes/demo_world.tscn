@@ -26,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.127068, 22.254314, -31.884
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.175376, 28.744312, -36.92842)
 
 [node name="freeroam_Thump" parent="Enemies" unique_id=1738272522 instance=ExtResource("3_874vt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.953285, 21.693157, -9.055134)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.171444, 21.28589, -9.055134)
 
 [node name="Freeroam_Player" parent="." unique_id=667445938 instance=ExtResource("2_hnokw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.776009, 21.914642, 23.24092)

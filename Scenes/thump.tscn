@@ -1,7 +1,6 @@
-[gd_scene format=4 uid="uid://bhn38kmkg3qp7"]
+[gd_scene format=4 uid="uid://4drlpgsuqsal"]
 
-[ext_resource type="Script" uid="uid://dn1dr1yonpjno" path="res://Scripts/battle_thump.gd" id="1_gon26"]
-[ext_resource type="Texture2D" uid="uid://cvprc3jeyvqvt" path="res://Thumping it.png" id="2_d8m81"]
+[ext_resource type="Texture2D" uid="uid://cvprc3jeyvqvt" path="res://Thumping it.png" id="1_ikofp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghf17"]
 resource_name = "Material"
@@ -26,7 +25,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_j0mdb"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ps525"]
 resource_name = "Cube_001"
 _surfaces = [{
 "aabb": AABB(-0.006712033, -0.0065280343, 0.0046781744, 0.011761461, 0.012985629, 0.011254955),
@@ -45,51 +44,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5sxwc")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okbtw"]
-albedo_texture = ExtResource("2_d8m81")
-uv1_scale = Vector3(122.23, 122.23, 122.23)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fenn5"]
+albedo_texture = ExtResource("1_ikofp")
 uv1_triplanar = true
+uv1_world_triplanar = true
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_d8m81"]
-radius = 0.5518787
+[node name="Thump" type="Node3D" unique_id=1062388476]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gon26"]
-size = Vector3(1, 0.2644043, 1)
-
-[node name="Battle_Thump" type="CharacterBody3D" unique_id=1714906916]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("1_gon26")
-metadata/_custom_type_script = "uid://tin84tc0ois6"
-
-[node name="Turn_Timer" type="Timer" parent="." unique_id=2107485198]
-wait_time = 16.0
-one_shot = true
-
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=1433335626]
-transform = Transform3D(-4.3711393e-06, -100.00001, -1.1920929e-05, 0, -1.1920929e-05, 100.00001, -100.000015, 4.371139e-06, 5.210804e-13, 0, 0, 0)
-mesh = SubResource("ArrayMesh_j0mdb")
-surface_material_override/0 = SubResource("StandardMaterial3D_okbtw")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=793612667]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.060696483)
-shape = SubResource("SphereShape3D_d8m81")
-
-[node name="Bottom_box" type="Area3D" parent="." unique_id=348685538]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8580389, 0)
-collision_layer = 2
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bottom_box" unique_id=118940021]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.39245605, 0)
-shape = SubResource("BoxShape3D_gon26")
-
-[node name="Feet" type="Marker3D" parent="." unique_id=1767259860]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59763443, 0)
-
-[node name="Spin_Timer" type="Timer" parent="." unique_id=126582082]
-wait_time = 0.5
-
-[connection signal="timeout" from="Turn_Timer" to="." method="_on_turn_timer_timeout"]
-[connection signal="body_entered" from="Bottom_box" to="." method="_on_bottom_box_body_entered"]
-[connection signal="timeout" from="Spin_Timer" to="." method="_on_spin_timer_timeout"]
+[node name="Cube" type="MeshInstance3D" parent="." unique_id=620591639]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
+mesh = SubResource("ArrayMesh_ps525")
+surface_material_override/0 = SubResource("StandardMaterial3D_fenn5")

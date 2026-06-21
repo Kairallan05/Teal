@@ -7,20 +7,22 @@ var origin : Vector3
 var midpoint : Vector3
 var t : float
 
+var trauma = 0.2
+
 
 func onload() -> void:
 	origin = global_position
 	origin.y += 1
 	t = 0.0
 	var rng = RandomNumberGenerator.new()
-	var x = rng.randi_range(-10.0, 10.0)
-	var z = rng.randi_range(-10.0, 10.0)
+	var x = rng.randi_range(-10, 10)
+	var z = rng.randi_range(-10, 10)
 	target = Vector3(x,0.8,z)
 	midpoint = (origin + target)/2
 	midpoint.y += 5
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var start = origin.lerp(midpoint, t)
 	var end = midpoint.lerp(target, t)
 	var curve = start.lerp(end, t)
@@ -40,4 +42,5 @@ func _on_body_entered(body: Node3D) -> void:
 		Ripple.speed = 10.0
 		user.attack_container.add_child(Ripple)
 		Ripple.global_position = global_position
+		user.player.camera.add_trauma(trauma)
 		queue_free()

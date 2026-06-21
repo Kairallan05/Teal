@@ -8,7 +8,7 @@ const DAMAGE = 20
 var jumping = false
 var spinning = false
 var my_turn
-@onready var trauma = 0.3
+@onready var trauma = 0.4
 @onready var turn_timer: Timer = $Turn_Timer
 @onready var spin_timer: Timer = $Spin_Timer
 @onready var attack_container: Node3D = $"../../Attack_Container"
@@ -43,10 +43,13 @@ func enemyturn():
 	my_turn = true
 	await get_tree().create_timer(1.0).timeout
 	turn_timer.start()
-	attack()
+	[Spin_attack,Jump].pick_random().call()
 
 func attack():
-	Spin_attack()
+	if spinning:
+		Spin_attack()
+	if jumping:
+		Jump()
 
 func Jump():
 	jumping = false
